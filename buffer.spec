@@ -29,7 +29,7 @@ chmod 755 %{name}-%{version}.shar
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT{%{_bindir},%{_mandir}/manl}
+install -d $RPM_BUILD_ROOT{%{_bindir},%{_mandir}/man1}
 
 %{__make} install CFLAGS="%{rpmcflags}" \
 	INSTBIN=$RPM_BUILD_ROOT%{_bindir} INSTMAN=$RPM_BUILD_ROOT%{_mandir}/man1
