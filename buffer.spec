@@ -2,24 +2,24 @@ Summary:	Standard input and output buffering program
 Summary(pl):	Program buforuj±cy standardowe wej¶cie i wyj¶cie
 Name:		buffer
 Version:	1.19
-Release:	1
+Release:	2
 License:	GPL
 Group:		Applications/Archiving
 Group(de):	Applikationen/Archivierung
 Group(pl):	Aplikacje/Archiwizacja
-Source0:	%{name}-%{version}.shar.gz
+Source0:	http://www.netsw.org/system/tools/fileutils/filter/%{name}-%{version}.shar.gz
 Patch0:		%{name}-1.17_suse.patch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
-Standard input and output buffering program
+Standard input and output buffering program.
 
 %description -l pl
-Program buforuj±cy standardowe wej¶cie i wyj¶cie
+Program buforuj±cy standardowe wej¶cie i wyj¶cie.
 
 %prep
 %setup -q -T -c -n buffer-%{version}
-gzip -dc %SOURCE0 > %{name}-%{version}.shar
+gzip -dc %{SOURCE0} > %{name}-%{version}.shar
 chmod 755 %{name}-%{version}.shar
 ./%{name}-%{version}.shar
 %patch0 -p0
@@ -32,7 +32,7 @@ rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT{%{_bindir},%{_mandir}/manl}
 
 %{__make} install CFLAGS="%{rpmcflags}" \
-	INSTBIN=$RPM_BUILD_ROOT%{_bindir} INSTMAN=$RPM_BUILD_ROOT%{_mandir}/manl
+	INSTBIN=$RPM_BUILD_ROOT%{_bindir} INSTMAN=$RPM_BUILD_ROOT%{_mandir}/man1
 
 gzip -9nf README
 
@@ -43,4 +43,4 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc README*
 %attr(755,root,root) %{_bindir}/buffer
-%{_mandir}/manl/buffer*
+%{_mandir}/man1/buffer*
