@@ -5,8 +5,6 @@ Version:	1.19
 Release:	2
 License:	GPL
 Group:		Applications/Archiving
-Group(de):	Applikationen/Archivierung
-Group(pl):	Aplikacje/Archiwizacja
 Source0:	http://www.netsw.org/system/tools/fileutils/filter/%{name}-%{version}.shar.gz
 Patch0:		%{name}-1.17_suse.patch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
