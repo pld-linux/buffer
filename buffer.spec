@@ -6,6 +6,7 @@ Release:	2
 License:	GPL
 Group:		Applications/Archiving
 Source0:	http://www.netsw.org/system/tools/fileutils/filter/%{name}-%{version}.shar.gz
+# Source0-md5:	b53ffff6380118f77b4f6cb4784a70db
 Patch0:		%{name}-1.17_suse.patch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
