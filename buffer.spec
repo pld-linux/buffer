@@ -29,10 +29,9 @@ chmod 755 %{name}-%{version}.shar
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT%{_bindir}
-install -d $RPM_BUILD_ROOT%{_mandir}/manl
+install -d $RPM_BUILD_ROOT{%{_bindir},%{_mandir}/manl}
 
-%{__make} install CFLAGS="$RPM_OPT_FLAGS -O02" \
+%{__make} install CFLAGS="%{rpmcflags}" \
 	INSTBIN=$RPM_BUILD_ROOT%{_bindir} INSTMAN=$RPM_BUILD_ROOT%{_mandir}/manl
 
 gzip -9nf README
