@@ -1,0 +1,47 @@
+Summary:	Standard input and output buffering program
+Summary(pl):	Program buforuj±cy standardowe wej¶cie i wyj¶cie
+Name:		buffer
+Version:	1.19
+Release:	1
+License:	GPL
+Group:		Applications/Archiving
+Group(de):	Applikationen/Archivierung
+Group(pl):	Aplikacje/Archiwizacja
+Source0:	%{name}-%{version}.shar.gz
+Patch0:		%{name}-1.17_suse.patch
+BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
+
+%description
+Standard input and output buffering program
+
+%description -l pl
+Program buforuj±cy standardowe wej¶cie i wyj¶cie
+
+%prep
+%setup -q -T -c -n buffer-%{version}
+gzip -dc %SOURCE0 > %{name}-%{version}.shar
+chmod 755 %{name}-%{version}.shar
+./%{name}-%{version}.shar
+%patch0 -p0
+
+%build
+%{__make}
+
+%install
+rm -rf $RPM_BUILD_ROOT
+install -d $RPM_BUILD_ROOT%{_bindir}
+install -d $RPM_BUILD_ROOT%{_mandir}/manl
+
+%{__make} install CFLAGS="$RPM_OPT_FLAGS -O2" \
+	INSTBIN=$RPM_BUILD_ROOT%{_bindir} INSTMAN=$RPM_BUILD_ROOT%{_mandir}/manl
+
+gzip -9nf README
+
+%clean
+rm -rf $RPM_BUILD_ROOT
+
+%files
+%defattr(644,root,root,755)
+%doc README*
+%attr(755,root,root) %{_bindir}/buffer
+%{_mandir}/manl/buffer*
