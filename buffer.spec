@@ -24,14 +24,16 @@ chmod 755 %{name}-%{version}.shar
 %patch0 -p0
 
 %build
-%{__make}
+%{__make} \
+	CC="%{__cc}" \
+	CFLAGS="%{rpmcflags}"
 
 %install
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT{%{_bindir},%{_mandir}/man1}
 
-%{__make} install CFLAGS="%{rpmcflags}" \
-	INSTBIN=$RPM_BUILD_ROOT%{_bindir} INSTMAN=$RPM_BUILD_ROOT%{_mandir}/man1
+install buffer $RPM_BUILD_ROOT%{_bindir}
+install buffer.man $RPM_BUILD_ROOT%{_mandir}/man1/buffer.1
 
 %clean
 rm -rf $RPM_BUILD_ROOT
