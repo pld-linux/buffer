@@ -32,7 +32,7 @@ rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT%{_bindir}
 install -d $RPM_BUILD_ROOT%{_mandir}/manl
 
-%{__make} install CFLAGS="$RPM_OPT_FLAGS -O2" \
+%{__make} install CFLAGS="$RPM_OPT_FLAGS -O02" \
 	INSTBIN=$RPM_BUILD_ROOT%{_bindir} INSTMAN=$RPM_BUILD_ROOT%{_mandir}/manl
 
 gzip -9nf README
