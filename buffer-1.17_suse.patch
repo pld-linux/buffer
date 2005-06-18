@@ -24,23 +24,3 @@
 +install:
 +	make install
 +
---- sem.c
-+++ sem.c	1998/11/09 12:19:25
-@@ -33,7 +33,7 @@
- #include <sys/sem.h>
- #include <errno.h>
- 
--#if defined(SYS5) || defined(ultrix) || defined(_AIX)
-+#if defined(SYS5) || defined(ultrix) || defined(_AIX) || defined _SEM_SEMUN_UNDEFINED
- union semun {
- 	int val;
- 	struct semid_ds *buf;
-@@ -151,7 +151,7 @@
- 	if( sem_id == -1 )
- 		return;
- 
--	if( semctl( sem_id, 0, IPC_RMID, NULL ) == -1 ){
-+	if( semctl( sem_id, 0, IPC_RMID, (union semun)0 ) == -1 ){
- 		report_proc();
- 		perror( "internal error, failed to remove semaphore" );
- 	}
