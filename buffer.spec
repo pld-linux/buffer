@@ -1,5 +1,5 @@
 Summary:	Standard input and output buffering program
-Summary(pl):	Program buforuj±cy standardowe wej∂cie i wyj∂cie
+Summary(pl.UTF-8):   Program buforujƒÖcy standardowe wej≈õcie i wyj≈õcie
 Name:		buffer
 Version:	1.19
 Release:	3
@@ -14,8 +14,8 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 %description
 Standard input and output buffering program.
 
-%description -l pl
-Program buforuj±cy standardowe wej∂cie i wyj∂cie.
+%description -l pl.UTF-8
+Program buforujƒÖcy standardowe wej≈õcie i wyj≈õcie.
 
 %prep
 %setup -q -T -c -n buffer-%{version}
