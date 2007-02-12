@@ -1,5 +1,5 @@
 Summary:	Standard input and output buffering program
-Summary(pl.UTF-8):   Program buforujący standardowe wejście i wyjście
+Summary(pl.UTF-8):	Program buforujący standardowe wejście i wyjście
 Name:		buffer
 Version:	1.19
 Release:	3
