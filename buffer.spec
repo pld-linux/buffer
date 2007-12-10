@@ -2,7 +2,7 @@ Summary:	Standard input and output buffering program
 Summary(pl.UTF-8):	Program buforujący standardowe wejście i wyjście
 Name:		buffer
 Version:	1.19
-Release:	3
+Release:	4
 License:	GPL
 Group:		Applications/Archiving
 Source0:	http://www.netsw.org/system/tools/fileutils/filter/%{name}-%{version}.shar.gz
