@@ -1,0 +1,22 @@
+diff -ru buffer-1.19.orig/buffer.c buffer-1.19/buffer.c
+--- buffer-1.19.orig/buffer.c	2003-01-05 13:08:22.000000000 -0700
++++ buffer-1.19/buffer.c	2003-01-05 13:28:07.000000000 -0700
+@@ -109,6 +109,9 @@
+  * Initial revision
+  * 
+  */
++#define _FILE_OFFSET_BITS   64
++#define _LARGEFILE_SOURCE 1
++
+ #include <stdlib.h>
+ #include <string.h>
+ #include <unistd.h>
+@@ -308,7 +311,7 @@
+ 				fprintf( stderr, "-i given twice\n" );
+ 				byee( -1 );
+ 			}
+-			if( (fdin = open( optarg, O_RDONLY )) < 0 ){
++			if( (fdin = open( optarg, O_RDONLY)) < 0 ){
+ 				report_proc();
+ 				perror( "cannot open input file" );
+ 				fprintf( stderr, "filename: %s\n", optarg );
