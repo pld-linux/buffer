@@ -9,6 +9,7 @@ Source0:	http://www.netsw.org/system/tools/fileutils/filter/%{name}-%{version}.s
 # Source0-md5:	b53ffff6380118f77b4f6cb4784a70db
 Patch0:		%{name}-1.17_suse.patch
 Patch1:		%{name}-debian-1.19-7.patch
+Patch2:		%{name}-largefile.patch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -24,6 +25,7 @@ chmod 755 %{name}-%{version}.shar
 ./%{name}-%{version}.shar
 %patch0 -p0
 %patch1 -p1
+%patch2 -p1
 
 %build
 %{__make} \
