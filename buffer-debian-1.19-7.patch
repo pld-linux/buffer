@@ -69,7 +69,7 @@
  #include "sem.h"
  
  #ifndef lint
- static char *rcsid = "$Header$";
+ static char *rcsid = "$Header: /a/swan/home/swan/staff/csg/lmjm/src/buffer/RCS/buffer.c,v 1.19 1995/08/24 17:46:28 lmjm Exp lmjm $";
  #endif
  
 -#ifndef __alpha
